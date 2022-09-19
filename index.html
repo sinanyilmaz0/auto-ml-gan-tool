@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <script src="https://use.fontawesome.com/7f209d1264.js"></script>
+        <link rel="stylesheet" href="css/style.css">
+        <link href="css/carousel.css" rel="stylesheet">
+        <link href="assets/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link href="assets/dist/css/modals.css" rel="stylesheet">
+        <script src="code.jquery.com/jquery-1.11.1.min.js"></script>
+
+        <title>Homepage</title>
+    </head>
+    <body class="flex-column min-vh-100">
+        <!--Start Navbar-->
+        <nav class="navbar navbar-expand-lg shadow" style="background: #EEEEEE; margin-bottom: 1%;">
+            <div class="container">
+            <a class="navbar-brand" href="#"><img src="assets\images\gca-yazilim-logo.png" style="width: 100px;"></a>
+            </div>
+        </nav>    
+        <!--End Navbar-->
+        
+        <!--Start Content-->
+        <div id="myCarousel" class="carousel slide" data-interval="false" style="margin-bottom: 5%;">
+            <div class="carousel-inner" style="height: auto;">
+                <div class="carousel-item active" id="carousel-1">
+                    <div class="container">
+                        <div class="container-fluid">   
+                            <div class="col">
+                                <div class="row content" style="margin: auto;">
+
+                                    <div class="col-sm-3 sidenav">
+                                        <div class="text-dark" style="margin-top: 5%;">
+
+
+                                            <div class="text-dark" style="margin-top: 5%;">
+                                                <h4>Load Dataset</h4>
+                                                <div class="col" style="margin-bottom: 20px;">
+                                                
+                                                    <div class="col" style="margin-bottom: 50px;">
+                                                        <span class="btn btn-primary btn-file">
+                                                            Upload From Path<input type="file"/>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <h4>Data Preparation</h4>
+
+                                            
+                                            <div class="col" style="margin-bottom: 20px;">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="radio" name="data" id="synthetic" checked>
+                                                    <label class="form-check-label">Use Synthetic Data</label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="radio" name="data" id="real">
+                                                    <label class="form-check-label">Use Real Data</label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="radio" name="data" id="hybrid">
+                                                    <label class="form-check-label">Hybrid(Use both synthetic and real)</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="col-sm-3 sidenav">
+                                        <div class="text-dark" style="margin-top: 5%;">
+                                            <h4>Data Augmentation</h4>
+                                            <div class="col" style="margin-bottom: 20px;">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" value="" id="adding-noise">
+                                                    <label class="form-check-label" for="flexCheckDefault">Adding Noise</label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" value="" id="ratation">
+                                                    <label class="form-check-label" for="flexCheckDefault">Rotation</label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" value="" id="translation">
+                                                    <label class="form-check-label" for="flexCheckDefault">Translation</label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" value="" id="contrast">
+                                                    <label class="form-check-label" for="flexCheckDefault">Contrast</label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" value="" id="saturation">
+                                                    <label class="form-check-label" for="flexCheckDefault">Saturation</label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" value="" id="color-augmentation">
+                                                    <label class="form-check-label" for="flexCheckDefault">Color Augmentation</label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" value="" id="brightness">
+                                                    <label class="form-check-label" for="flexCheckDefault">Brightness</label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" value="" id="scalling">
+                                                    <label class="form-check-label" for="flexCheckDefault">Scalling</label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" value="" id="flipping">
+                                                    <label class="form-check-label" for="flexCheckDefault">Flipping</label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" value="" id="cropping">
+                                                    <label class="form-check-label" for="flexCheckDefault">Cropping</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-3 sidenav">
+                                        <div class="text-dark" style="margin-top: 5%;">
+                                            <h5>Samples From Loaded Dataset</h5>
+                                            <div class="row" style="margin-bottom: 20px; width: 85%;">
+                                                <img src=".\assets\images\image.0001.png" style="margin-bottom: 10px;">
+                                                <div class="col" >
+                                                    <div class="col-sm-12" style="margin-bottom: 100px;" id="btn-bottom">
+                                                        <button class="btn btn-primary btn-sm btn-block" style="width: 100%; margin-bottom: 2%;" id="btn-synthesize-picture">Synthesize Picture</button>        
+                                                        <button class="btn btn-primary btn-sm btn-block" style="width: 100%;" id="btn-data-augmentation">Data Augmentation</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+
+                                    <div class="col-sm-3 sidenav" style="display: none;" id="result-picture" style="margin-bottom: 100px;">
+                                        <div class="text-dark" style="margin-top: 5%;">
+                                            <h4>Result</h4>
+                                            <div class="row" style="margin-bottom: 100px; width: 85%;">
+                                                <img src=".\assets\images\image.0001.png" style="margin-bottom: 10px;">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="carousel-item" id="carousel-2">
+                    <div class="container">
+                        <div class="container-fluid">   
+                            <div class="col">
+                                <div class="row content" style="height: auto;">
+
+                                    <div class="col-sm-3 sidenav">
+                                        <div class="col">
+                                            <h5>Features</h5>
+                                            <p>Which properties do you want to feed in?</p>
+                                        </div>
+                                
+                                        <div class="col" >
+                                            <p>Ratio of training to test data</p>
+                                            <input id="training-ratio" type="range" value="25" min="0" max="50" oninput="this.nextElementSibling.value = this.value">
+                                            <output id="training-ratio-output">25</output>
+                                        </div>
+                                        <div class="col">
+                                            <p>Noise</p>       
+                                            <input id="noise" type="range" value="0" min="0" max="50" oninput="this.nextElementSibling.value = this.value">
+                                            <output id="noise-output">0</output>
+                                        </div>
+                                
+                                        <div class="col">
+                                            <p>Batch Size</p>       
+                                            <input id="batch-size" type="range" value="10" min="0" max="30" oninput="this.nextElementSibling.value = this.value">
+                                            <output id="batch-size-output">10</output>
+                                        </div>
+                                
+                                        <button type="button" class="btn shadow btn-primary">REGENERATE</button>
+                                
+                                        </div>
+                                        
+                                        
+                        
+                                        <div class="col-sm-6 sidenav">
+                                            <div class="col">
+                                                <h5>Hyperparameter Optimization</h5>
+                                            </div>
+                                            <div class="col">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="radio" name="choose" id="automated">
+                                                    <label class="form-check-label">Automated</label>
+                                                    </div>
+                                                    <div class="form-check">
+                                                    <input class="form-check-input" type="radio" name="choose" id="manual" checked>
+                                                    <label class="form-check-label">Manuel</label>
+                                                    </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm-6 sidenav">
+                                                    <div class="col">
+                                                        <p>Learning Rate</p>
+                                                        <select class="form-select form-select-sm mb-3" id="learning-rate">
+                                                            <option value="automated">Automated</option>
+                                                            <option value="0.00001">0.00001</option>
+                                                            <option value="0.0001">0.0001</option>
+                                                            <option value="0.001">0.001</option>
+                                                            <option value="0.003">0.003</option>
+                                                            <option value="0.01">0.01</option>
+                                                            <option value="0.03">0.03</option>
+                                                            <option value="0.1">0.1</option>
+                                                            <option value="0.3">0.3</option>
+                                                            <option value="1">1</option>
+                                                            <option value="3">3</option>
+                                                            <option value="10">10</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="col">
+                                                        <p>Activation</p>       
+                                                        <select class="form-select form-select-sm mb-3" id="activation">
+                                                            <option value="automated">Automated</option>
+                                                            <option value="relu">ReLU</option>
+                                                            <option value="tanh">Tanh</option>
+                                                            <option value="sigmoid">Sigmoid</option>
+                                                            <option value="linear">Linear</option>
+                                                        </select>
+                                                    </div>
+                                            
+                                                    <div class="col">
+                                                        <p>Regularization</p>       
+                                                        <select class="form-select form-select-sm mb-3" id="regularization">
+                                                            <option value="automated">Automated</option>
+                                                            <option value="none">None</option>
+                                                            <option value="L1">L1</option>
+                                                            <option value="L2">L2</option>
+                                                        </select>
+                                                    </div>
+
+                                                    <div class="col">
+                                                        <p>Hidden Layers : <span class="counter" id="counter">0</span></p>
+                                                        <button type="button" class="btn btn-circle m-1 shadow" id="decr"><i class="fa fa-minus"></i></button>
+                                                        <button type="button" class="btn btn-circle m-1 shadow" id="incr"><i class="fa fa-plus"></i></button>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-6 sidenav">
+                                                    <div class="col">
+                                                        <p>Regularization Rate</p>       
+                                                        <select class="form-select form-select-sm mb-3" id="regularization-rate">
+                                                            <option value="automated">Automated</option>
+                                                            <option value="0">0</option>
+                                                            <option value="0.001">0.001</option>
+                                                            <option value="0.003">0.003</option>
+                                                            <option value="0.01">0.01</option>
+                                                            <option value="0.03">0.03</option>
+                                                            <option value="0.1">0.1</option>
+                                                            <option value="0.3">0.3</option>
+                                                            <option value="1">1</option>
+                                                            <option value="3">3</option>
+                                                            <option value="10">10</option>
+                                                        </select>
+                                                    </div>
+                                
+                                                    <div class="col">
+                                                        <p>Hyperparameter Optimization Algorithm</p> 
+                                                        <select class="form-select form-select-sm mb-3" id="optimization-algorithm">
+                                                            <option value="automated">Automated</option>
+                                                            <option value="manual-search">Manual Search</option>
+                                                            <option value="grid-search">Grid Search</option>
+                                                            <option value="randomized-search">Randomized Search</option>
+                                                            <option value="halving-grid-search">Halving Grid Search</option>
+                                                            <option value="halving-randomized-search">Halving Randomized Search</option>
+                                                            <option value="hyperopt-sklearn">HyperOpt-Sklearn</option>
+                                                            <option value="bayes-search">Bayes Search</option>
+                                                        </select>
+                                                    </div>
+
+                                                    <div class="col">
+                                                        <p>Training Algorithm</p> 
+                                                        <select class="form-select form-select-sm mb-3" id="blocked-algorithm">
+                                                            <option value="automated">Automated</option>
+                                                            <option value="logistic-regression">Logistic Regression</option>
+                                                            <option value="sgd">SGD</option>
+                                                            <option value="multinomial-naive-bayes">Multinomial Naive Bayes</option>
+                                                            <option value="bernoulli-naive-bayes">Bernoulli Naive Bayes</option>
+                                                            <option value="svm">SVM</option>
+                                                            <option value="linear-svm">Linear SVM</option>
+                                                            <option value="knn">KNN</option>
+                                                            <option value="decision-tree">Decision Tree</option>
+                                                            <option value="random-forest">Random Forest</option>
+                                                            <option value="extreme-random-trees">Extreme Random Trees</option>
+                                                            <option value="Light-gbm">Light GBM</option>
+                                                            <option value="gradient-boosting">Gradient Boosting</option>
+                                                            <option value="tensorflow-dnn">TensorFlow DNN</option>
+                                                            <option value="tensorflow-linear-classifier">TensorFlow Linear Classifier</option>
+                                                            <option value="xgboost-classifier">XGBoost Classifier</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="col" style="margin-bottom: 20px;">
+                                                        <p>Neuron : <span class="ncounter" id="ncounter">0</span></p>
+                                                        <button type="button" class="btn btn-circle m-1 shadow" id="ndecr"><i class="fa fa-minus"></i></button>
+                                                        <button type="button" class="btn btn-circle m-1 shadow" id="nincr"><i class="fa fa-plus"></i></button>
+                                                    </div>        
+                                                </div>
+                                            </div>
+                                        </div>
+                                            
+                                        <div class="col-sm-3 sidenav">
+                                            <div class="col">
+
+                                                <h5>Model Selection</h5>
+                                                <div class="col" style="margin-bottom: 10px;">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="radio" name="model-selection" id="ms-automated" checked>
+                                                    <label class="form-check-label">Automated</label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="radio" name="model-selection" id="feed-forward-neural-network">
+                                                    <label class="form-check-label">Feed Forward Neural Network</label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="radio" name="model-selection" id="multilayer-perceptron">
+                                                    <label class="form-check-label">Multilayer Perceptron</label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="radio" name="model-selection" id="convolutional-neural-network">
+                                                    <label class="form-check-label">Convolutional Neural Network</label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="radio" name="model-selection" id="radial-basis-functional-neural-network" >
+                                                    <label class="form-check-label">Radial Basis Functional Neural Network</label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="radio" name="model-selection" id="recurrent-neural-network">
+                                                    <label class="form-check-label">Recurrent Neural Network</label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="radio" name="model-selection" id="lstm-long-short-term-memory">
+                                                    <label class="form-check-label">LSTM - Long Short-Term Memory</label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="radio" name="model-selection" id="sequence-to-sequence-model">
+                                                    <label class="form-check-label">Sequence to Sequence Model</label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="radio" name="model-selection" id="modular-neural-network">
+                                                    <label class="form-check-label">Modular Neural Network</label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="radio" name="model-selection" id="generative-adversarial-network">
+                                                    <label class="form-check-label">Generative adversarial network</label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="radio" name="model-selection" id="autoencoder">
+                                                    <label class="form-check-label">Autoencoder</label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="radio" name="model-selection" id="transformer">
+                                                    <label class="form-check-label">Transformer</label>
+                                                </div>
+                                            </div>
+
+                                            
+                                                <h5>Neural Architecture Search</h5>
+                                                <div class="col" style="margin-bottom: 10px;">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="radio" name="neural-architecture-search" id="nas-automated" checked>
+                                                        <label class="form-check-label">Automated</label>
+                                                    </div>
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="radio" name="neural-architecture-search" id="reinforcement-learning">
+                                                        <label class="form-check-label">Reinforcement Learning</label>
+                                                    </div>
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="radio" name="neural-architecture-search" id="evolutionary-algorithm">
+                                                        <label class="form-check-label">Evolutionary Algorithm</label>
+                                                    </div>
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="radio" name="neural-architecture-search" id="gradient-descent">
+                                                        <label class="form-check-label">Gradient Descent</label>
+                                                    </div>
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="radio" name="neural-architecture-search" id="random-search">
+                                                        <label class="form-check-label">Random Search</label>
+                                                    </div>
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="radio" name="neural-architecture-search" id="neural-bayesian-optimization">
+                                                        <label class="form-check-label">Bayesian Optimization</label>
+                                                    </div>  
+                                                </div>
+                                            </div>         
+                                        </div>
+                                
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="carousel-item" id="carousel-3">
+                    <div class="container">
+                        <div class="container-fluid">   
+                            <div class="col">
+                                <div class="row content">
+                                    <h5>Graps</h5>
+                                    <div class="col-sm-4 sidenav">
+                                        
+                                        <div class="row">
+                                            <img src="./assets/images/graph.png">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4 sidenav">
+                                        <div class="row">
+                                            <img src="./assets/images/graph.png">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-1 sidenav"></div>
+                                    <div class="col-sm-3 sidenav" style="margin-bottom: 100px;">
+                                        <div class="col h-100 p-3 bg-light border rounded-3" s>
+                                            <h5>Output</h5>
+                                            <p style="margin-top: 20px;">Epoch</p>
+                                            <p><strong style="font-size: 20px;">000,000</strong></p>
+                                            <button class="btn"><i class="fa fa-repeat"></i></button>
+                                            <button class="btn btn-circle btn-circle-lg m-1 shadow" style="background: rgb(255, 255, 255) !important;"><i class="fa fa-play"></i></button>
+                                            <button class="btn"><i class="fa fa-forward"></i></button>
+                                            
+                                            
+                                            <div class="list-group w-auto" style="margin-top: 10px;">
+                                                <div href="#" class="list-group-item list-group-item-action d-flex gap-3" aria-current="true">
+                                                    <div class="d-flex gap-2 w-100 justify-content-between">
+                                                    <div>
+                                                        <strong class="mb-0">Run ID : </strong>
+                                                        <span class="mb-0 opacity-75">000654</span>
+                                                    </div>
+                                                    </div>
+                                                </div>
+                                                <div href="#" class="list-group-item list-group-item-action d-flex gap-3" aria-current="true">
+                                                <div class="d-flex gap-2 w-100 justify-content-between">
+                                                    <div>
+                                                    <strong class="mb-0">Status : </strong>
+                                                    <span class="mb-0 opacity-75">Complated</span>
+                                                    </div>
+                                                </div>
+                                                </div>
+                                                <div href="#" class="list-group-item list-group-item-action d-flex gap-3" aria-current="true">
+                                                    <div class="d-flex gap-2 w-100 justify-content-between">
+                                                    <div>
+                                                        <strong class="mb-0">Iteration : </strong>
+                                                        <span class="mb-0 opacity-75">10</span>
+                                                    </div>
+                                                    </div>
+                                                </div>
+                                                <div href="#" class="list-group-item list-group-item-action d-flex gap-3" aria-current="true">
+                                                    <div class="d-flex gap-2 w-100 justify-content-between">
+                                                    <div>
+                                                        <strong class="mb-0">Run Algorithm : </strong>
+                                                        <span class="mb-0 opacity-75">Ensemble</span>
+                                                    </div>
+                                                    </div>
+                                                </div>
+                                                <div href="#" class="list-group-item list-group-item-action d-flex gap-3" aria-current="true">
+                                                    <div class="d-flex gap-2 w-100 justify-content-between">
+                                                    <div>
+                                                        <strong class="mb-0">Created : </strong>
+                                                        <span class="mb-0 opacity-75">05.08.2022</span>
+                                                    </div>
+                                                    </div>
+                                                </div>
+                                                <div href="#" class="list-group-item list-group-item-action d-flex gap-3" aria-current="true">
+                                                    <div class="d-flex gap-2 w-100 justify-content-between">
+                                                    <div>
+                                                        <strong class="mb-0">Duration : </strong>
+                                                        <span class="mb-0 opacity-75">00:10:32</span>
+                                                    </div>
+                                                    </div>
+                                                </div>
+
+
+                                                <div href="#" class="list-group-item list-group-item-action d-flex gap-3" aria-current="true">
+                                                    <div class="d-flex gap-2 w-100 justify-content-between">
+                                                    <div>
+                                                        <strong class="mb-0">Model : </strong>
+                                                        <span class="mb-0 opacity-75">Download</span>
+                                                    </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>   
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--End Content-->
+
+        <!--Buttons-->
+        <div class="row" style="bottom: 0; width: 100%; position: fixed; background-color: white; padding-bottom: 2%;  padding-top: 2%;">
+            <div class="row mb-12 text-center" style="margin:auto">
+                <div class="col-4 themed-grid-col"><button class="btn btn-primary"  style="width:100px; float: left; margin-left: 10%; display: none;"  id="prev-btn" data-bs-target="#myCarousel" data-bs-slide="prev">Previous</button> </div>
+                <div class="col-4 themed-grid-col">
+                    <button class="btn btn-primary" style="width: 150px;" data-toggle="modal" data-target="#autoModal" id="auto-btn">Automated</button>
+                    <button class="btn btn-primary" style="width: 150px;" data-toggle="modal" data-target="#resetModal">Reset</button>
+                </div>
+                <div class="col-4 themed-grid-col"><button class="btn btn-primary" style="width:100px;float: right; margin-right: 10%;" data-bs-target="#myCarousel" data-bs-slide="next" id="next-btn">Next</button></div>
+            </div>
+        </div>
+        <!--End Buttons-->
+
+
+
+        <!-- Auto Modal -->
+        <div class="modal fade" id="autoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Automated</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    All your previous selections will be cleared and will be automatically selected for you. Are you sure ?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" id="all-auto" data-dismiss="modal">Yes, I'm sure</button>
+                </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Auto Modal -->
+        <!-- Reset Modal -->
+        <div class="modal fade" id="resetModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Reset</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    All your previous selections will be cleared. Are you sure ?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" id="reset" data-dismiss="modal">Yes, I'm sure</button>
+                </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Reset Modal -->
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+        <script src="assets/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="js/script.js"></script>
+    </body>
+</html>
+
+
+
